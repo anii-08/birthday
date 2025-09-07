@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday!</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .page {
+      display: none;
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff4081;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1rem;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e91e63;
+    }
+
+    img, video, iframe {
+      max-width: 100%;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+    
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1: Welcome -->
+  <div class="page active" id="page1">
+    <h1>🎉 Welcome! 🎉</h1>
+    <p>Someone special has a birthday today...</p>
+    <button onclick="goToPage(2)">Start the Surprise</button>
+  </div>
+
+  <!-- Page 2: Main Message -->
+  <div class="page" id="page2">
+    <h1>🎂 Happiesstt Birthdayyy! 🎂</h1>
+    <p>Wishing you a day filled with smiles, laughter, love, and cake! May good god bless you & you always grow in life. 🥳</p>
+    <img src="https://media.tenor.com/aTnrN4Lm3J0AAAAM/brown-cony.gif" alt="Birthday Cake">
+    <button onclick="goToPage(3)">Reveal Your Surprise 🎁</button>
+  </div>
+
+
+  <!-- Page 3: Final Surprise with Personal Photo/Video -->
+  <div class="page" id="page3">
+    <h1>🎈 You're Amazing! 🎈</h1>
+    <p>I LOVE YOU BABE !  ❤️</p>
+
+    <!-- OPTION 1: PERSONAL PHOTO -->
+    <!-- Replace "your-photo.jpg" with your actual image path or URL -->
+    <img src="bdy.jpg" alt="Personal Memory">
+
+    <!-- OPTION 2: PERSONAL VIDEO -->
+    <!-- Replace "your-video.mp4" or embed link with your own -->
+    <!-- Uncomment to use this option instead of the image -->
+
+    <!--
+    <video controls>
+      <source src="your-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    -->
+
+    <!-- OR: Embed YouTube video (optional) -->
+    <!--
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+    -->
+
+    <button onclick="goToPage(1)">Back to Start 🔁</button>
+  </div>
+
+  <script>
+    function goToPage(pageNumber) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.classList.remove('active'));
+      document.getElementById('page' + pageNumber).classList.add('active');
+    }
+  </script>
+</body>
+</html>
